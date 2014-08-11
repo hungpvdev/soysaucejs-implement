@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../source/js/soysauce.js"></script>
+    <link rel="stylesheet" type="text/css" href="../source/css/soysauce.css">
+    <meta charset=utf-8 />
+    <title>Carousel demo</title>
+</head>
+<body>
+<!-- Soysauce Code Begin -->
+<style>
+    .img {
+        max-width: 100%;
+    }
+
+    .carousel {
+        width: 500px;
+        margin: 50px auto;
+        position: relative;
+    }
+
+    [data-ss-component="dots"] {
+        position: absolute;
+        bottom: -20px;
+        text-align: center;
+        width: 100%
+    }
+
+    [data-ss-component="dot"] {
+        background: black;
+        width: 10px;
+        height: 10px;
+        margin: 0 3px;
+        display: inline-block;
+        border-radius: 20px;
+        opacity: 0.3;
+    }
+
+    [data-ss-component="dot"][data-ss-state="active"] {
+        opacity: 1;
+    }
+</style>
+<div data-ss-widget="carousel" class="carousel" data-ss-options="containerZoom">
+    <div data-ss-component="item"><img src="http://assets.soysaucejs.com.s3.amazonaws.com/tutorial-assets/carousel/carousel-example-1.jpg"></div>
+    <div data-ss-component="item"><img src="http://assets.soysaucejs.com.s3.amazonaws.com/tutorial-assets/carousel/carousel-example-2.jpg"></div>
+    <div data-ss-component="item"><img src="http://assets.soysaucejs.com.s3.amazonaws.com/tutorial-assets/carousel/carousel-example-3.jpg"></div>
+    <div data-ss-component="item"><img src="http://assets.soysaucejs.com.s3.amazonaws.com/tutorial-assets/carousel/carousel-example-4.jpg"></div>
+</div>
+<!-- Soysauce Code End -->
+</body>
+</html>
