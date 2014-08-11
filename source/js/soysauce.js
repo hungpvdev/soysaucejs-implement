@@ -4985,12 +4985,21 @@ soysauce.carousels = (function($, undefined) {
       this.zoomLoader = wrapper.find("~ [data-ss-component='zoom_loader']");
 
       if (this.containerZoom) {
-        this.zoomIcon.hammer().on("tap", function(e) {
+          /* Customize:
+           *  Original value "tap"
+           *  Modification value: "doubletap"
+           *  For: Change from "single tap to zoom" -> "doubletap to zoom"
+           * */
+        this.zoomIcon.hammer().on("doubletap", function(e) {
           var centeredZoom = true;
           self.handleContainerZoom(e, centeredZoom);
         });
-
-        this.container.hammer().on("tap drag", function(e) {
+          /* Customize:
+           *  Original value "tap"
+           *  Modification value: "doubletap"
+           *  For: Change from "single tap to zoom" -> "doubletap to zoom"
+           * */
+        this.container.hammer().on("doubletap drag", function(e) {
           if (self.lockScroll) return;
           if (e.type === "drag") {
             if (self.isZoomed) {
@@ -5244,7 +5253,12 @@ soysauce.carousels = (function($, undefined) {
 
     if (this.freeze) return;
 
-    if (e.type === "tap") {
+    /* Customize:
+    *  Original value "tap"
+    *  Modification value: "doubletap"
+    *  For: Change from "single tap to zoom" -> "doubletap to zoom"
+    * */
+    if (e.type === "doubletap") {
       var zoomImg, originalSrc, loadComplete;
 
       if (this.currentItem.attr("data-ss-no-zoom") === "true") return;
@@ -5608,7 +5622,14 @@ soysauce.carousels = (function($, undefined) {
         this.prevBtn.attr("data-ss-state", "enabled");
       }
     }
-
+      /*
+      * Customize: fix autoheight not start while move forward slide
+      * */
+      if (this.autoheight) {
+          var newHeight = $(this.items[this.index]).outerHeight(true);
+          this.widget.height(newHeight);
+      }
+      /* End customize*/
     this.ready = false;
     this.forward = true;
 
@@ -5661,6 +5682,15 @@ soysauce.carousels = (function($, undefined) {
         this.nextBtn.attr("data-ss-state", "enabled");
       }
     }
+
+      /*
+       * Customize: fix autoheight not start while move backward slide
+       * */
+      if (this.autoheight) {
+          var newHeight = $(this.items[this.index]).outerHeight(true);
+          this.widget.height(newHeight);
+      }
+      /* End customize*/
 
     this.ready = false;
     this.forward = false;
