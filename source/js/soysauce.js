@@ -5898,7 +5898,14 @@ soysauce.carousels = (function($, undefined) {
         });
       }, 0);
     } else {
-      this.gotoPos(newOffset, true);
+        this.resetZoomState();
+        setTimeout(function() {
+            self.gotoPos(newOffset, true);
+            self.setTransitionedStates({
+                timestamp: new Date()
+            });
+        }, 0);
+        this.enableSwipe();
     }
 
     return true;
