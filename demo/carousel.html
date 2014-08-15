@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../source/js/jquery-1.11.js"></script>
     <script src="../source/js/soysauce.js"></script>
     <link rel="stylesheet" type="text/css" href="../source/css/soysauce.css">
     <meta charset=utf-8 />
     <title>Carousel demo</title>
 </head>
 <body>
-<!-- Soysauce Code Begin -->
+
 <style>
     .img {
         max-width: 100%;
@@ -41,12 +41,27 @@
         opacity: 1;
     }
 </style>
-<div data-ss-widget="carousel" class="carousel" data-ss-options="containerZoom">
+<!-- Soysauce Code Begin -->
+<div data-ss-widget="carousel" class="carousel" data-ss-options="containerZoom" data-ss-init='manual'>
     <div data-ss-component="item"><img src="http://assets.soysaucejs.com.s3.amazonaws.com/tutorial-assets/carousel/carousel-example-1.jpg"></div>
     <div data-ss-component="item"><img src="http://assets.soysaucejs.com.s3.amazonaws.com/tutorial-assets/carousel/carousel-example-2.jpg"></div>
     <div data-ss-component="item"><img src="http://assets.soysaucejs.com.s3.amazonaws.com/tutorial-assets/carousel/carousel-example-3.jpg"></div>
     <div data-ss-component="item"><img src="http://assets.soysaucejs.com.s3.amazonaws.com/tutorial-assets/carousel/carousel-example-4.jpg"></div>
 </div>
 <!-- Soysauce Code End -->
+<div class="function-button">
+    <input type="button"  name="Destroy" onclick="init()" value="Init">
+    <input type="button"  name="Destroy" onclick="destroy()" value="Destroy">
+    <div class="content"></div>
+</div>
+
+<script type="text/javascript">
+    function init(){
+        soysauce.init(".carousel", true);
+    }
+    function destroy(){
+        soysauce.destroy(".carousel", false);
+    }
+</script>
 </body>
 </html>
